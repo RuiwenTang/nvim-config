@@ -60,3 +60,18 @@ lspconfig['clangd'].setup {
     capabilities = default_capabilities,
     single_file_support = true,
 }
+
+lspconfig['cmake'].setup {
+  filetypes = { 'cmake' },
+  init_options = { 
+    buildDirectory = "build" 
+  },
+}
+
+lspconfig['asm_lsp'].setup {
+  cmd = { "asm-lsp" },
+  on_attach = on_attach,
+  filetypes = {
+    "asm", "s", "S"
+  },
+}

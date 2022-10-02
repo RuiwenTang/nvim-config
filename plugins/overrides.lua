@@ -16,6 +16,8 @@ M.mason = {
     "lua-language-server",
     "stylua",
     "clangd",
+    "cmake-language-server",
+    "asm-lsp",
   },
 }
 
