@@ -41,6 +41,14 @@ return {
     end,
   },
 
+  ["akinsho/toggleterm.nvim"] = {
+    config = function()
+      require("toggleterm").setup({
+        open_mapping = [[<c-\>]],
+      })
+    end,
+  }
+
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
 }

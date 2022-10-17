@@ -18,6 +18,7 @@ local root_files = {
     '.clang-format',
     'compile_commands.json',
     'compile_flags.txt',
+    '.git',
     'configure.ac', -- AutoTools
 }
 
@@ -59,6 +60,10 @@ lspconfig['clangd'].setup {
     on_attach = on_attach,
     capabilities = default_capabilities,
     single_file_support = true,
+    filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+    root_dir = function(fname)
+      return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
+    end,
 }
 
 lspconfig['cmake'].setup {
