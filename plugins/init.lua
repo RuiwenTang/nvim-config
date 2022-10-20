@@ -1,5 +1,8 @@
 local overrides = require "custom.plugins.overrides"
 
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+
 return {
 
   -- ["goolord/alpha-nvim"] = { disable = false } -- enables dashboard
@@ -47,7 +50,22 @@ return {
         open_mapping = [[<c-\>]],
       })
     end,
-  }
+  },
+
+  [ "ray-x/lsp_signature.nvim" ] = {
+    config = function()
+      cfg = {
+        doc_lines = 10,
+        max_height = 12,
+        max_width = 80,
+        wrap = true,
+        floating_window = true,
+        floating_window_above_cur_line = true,
+        toggle_key = "<M-x>",
+      }
+      require("lsp_signature").setup(cfg)
+    end,
+  },
 
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,

@@ -52,11 +52,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+
+  require "lsp_signature".on_attach({
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    handler_opts = {
+      border = "rounded"
+    }
+  }, bufnr)
 end
 
 lspconfig['clangd'].setup {
-    cmd = { 'clangd', "--background-index", "--compile-commands-dir=build", },
+    cmd = { '/Users/tangruiwen/WorkSpace/LLVM/clangd_15.0.1/bin/clangd', "--background-index", "--compile-commands-dir=build", },
     on_attach = on_attach,
     capabilities = default_capabilities,
     single_file_support = true,
