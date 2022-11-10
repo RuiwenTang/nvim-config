@@ -17,7 +17,6 @@ M.mason = {
     "stylua",
     "clangd",
     "cmake-language-server",
-    "asm-lsp",
   },
 }
 
