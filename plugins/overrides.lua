@@ -17,6 +17,7 @@ M.mason = {
     "stylua",
     "clangd",
     "cmake-language-server",
+    "rust-analyzer",
   },
 }
 
