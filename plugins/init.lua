@@ -152,8 +152,17 @@ return {
         },
       })
 
-      print("rust-tools setup")
     end
+  },
+  ["danymat/neogen"] = {
+    requires = "nvim-treesitter/nvim-treesitter",
+    config = function ()
+      require('neogen').setup {
+        languages = {
+          ['cpp.doxygen'] = require('neogen.configurations.cpp')
+        },
+      }
+    end,
   }
 
   -- remove plugin
