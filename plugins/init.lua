@@ -163,6 +163,12 @@ return {
         },
       }
     end,
+  },
+  ["rcarriga/nvim-dap-ui"] = {
+    requires = {"mfussenegger/nvim-dap"},
+    function ()
+      require 'custom.plugins.dap'
+    end
   }
 
   -- remove plugin
