@@ -14,5 +14,11 @@ M.nvimtree = {
 }
 
 -- more keybinds!
+--
+M.neogen = {
+  n = {
+    ["<leader>cg"] = { ":lua require('neogen').generate() <CR>" },
+  }
+}
 
 return M
