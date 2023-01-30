@@ -166,8 +166,12 @@ return {
   },
   ["rcarriga/nvim-dap-ui"] = {
     requires = {"mfussenegger/nvim-dap"},
-    function ()
-      require 'custom.plugins.dap'
+  },
+  ["ldelossa/nvim-dap-projects"] = {
+    requires = "rcarriga/nvim-dap-ui",
+    config = function ()
+      local ndp = require('nvim-dap-projects')
+      ndp.search_project_config()
     end
   }
 
