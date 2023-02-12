@@ -14,6 +14,17 @@ M.nvimtree = {
      },
 }
 
+M.tabufline = {
+  n = {
+    ["<leader>ct"] = {
+      function()
+        require("nvchad_ui.tabufline").closeOtherBufs()
+      end,
+      "close all other tabs"
+    }
+  }
+}
+
 -- more keybinds!
 --
 M.neogen = {
