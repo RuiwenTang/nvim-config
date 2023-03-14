@@ -6,8 +6,18 @@ M.treesitter = {
     "lua",
     "html",
     "css",
+    "javascript",
     "c",
-    "cpp",
+    "markdown",
+    "markdown_inline",
+    "glsl",
+    "cmake",
+  },
+  indent = {
+    enable = true,
+    disable = {
+      "python"
+    },
   },
 }
 
@@ -16,6 +26,12 @@ M.mason = {
     -- lua stuff
     "lua-language-server",
     "stylua",
+
+    -- web dev stuff
+    "css-lsp",
+    "html-lsp",
+    "typescript-language-server",
+    "deno",
     "clangd",
     "cmake-language-server",
     "rust-analyzer",
