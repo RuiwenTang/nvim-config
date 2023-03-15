@@ -5,6 +5,7 @@ return {
     filesystem = {
       filtered_items = {
         hide_gitignored = false,
+        hide_dotfiles = false,
       }
     }
   }
