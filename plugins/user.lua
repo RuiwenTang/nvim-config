@@ -34,15 +34,4 @@ return {
       })
     end
   },
-  {
-    "ldelossa/nvim-dap-projects",
-    dependencies = 'rcarriga/nvim-dap-ui',
-    config = function ()
-      -- code
-      local ndp = require('nvim-dap-projects')
-
-      ndp.search_project_config()
-    end,
-    lazy = false,
-  }
 }
