@@ -34,4 +34,13 @@ return {
       })
     end
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    as = "tokyonight",
+    config = function ()
+      -- code
+      require('tokyonight').setup()
+    end
+  }
 }

@@ -1,5 +1,7 @@
 
 return {
+  colorscheme = "tokyonight",
+  
   polish = function ()
     -- code
     vim.filetype.add({
