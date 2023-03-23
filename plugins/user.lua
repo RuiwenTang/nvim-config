@@ -35,12 +35,12 @@ return {
     end
   },
   {
-    "folke/tokyonight.nvim",
+    "cpea2506/one_monokai.nvim",
     lazy = false,
-    as = "tokyonight",
+    as = "one_monokai",
     config = function ()
       -- code
-      require('tokyonight').setup()
+      require('one_monokai').setup()
     end
   }
 }

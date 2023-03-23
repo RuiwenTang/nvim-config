@@ -1,6 +1,6 @@
 
 return {
-  colorscheme = "tokyonight",
+  colorscheme = "one_monokai",
   
   polish = function ()
     -- code
