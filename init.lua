@@ -22,6 +22,11 @@ return {
       },
     },
   },
+  options = {
+    g = {
+      autoformat_enabled = false,
+    }
+  },
   
   polish = function ()
     -- code
