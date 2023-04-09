@@ -59,4 +59,16 @@ return {
       })
     end
   },
+  -- trouble
+  {
+    'folke/trouble.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    event = 'BufRead',
+    config = function ()
+      -- code
+      require('trouble').setup()
+    end
+  }
 }
