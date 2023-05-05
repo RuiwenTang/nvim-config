@@ -36,6 +36,7 @@ return {
         frag = 'glsl',
         vert = 'glsl',
         geom = 'glsl',
+        mm = 'cpp',
       }
     })
   end
