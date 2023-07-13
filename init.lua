@@ -1,6 +1,6 @@
 
 return {
-  colorscheme = "one_monokai",
+  colorscheme = "catppuccin",
 
   lsp = {
     setup_handlers = {
