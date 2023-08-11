@@ -11,15 +11,8 @@ return {
       end,
       -- clangd
       clangd = function(_, opts)
-        require("clangd_extensions").setup {
-          server = opts,
-          extensions = {
-            autoSetHints = true,
-            inlay_hints = {
-              inline = true,
-            }
-          }
-        }
+        require('lspconfig').clangd.setup(opts)
+        require("clangd_extensions").setup {}
       end,
     },
     config = {
