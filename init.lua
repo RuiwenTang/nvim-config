@@ -11,8 +11,21 @@ return {
       end,
       -- clangd
       clangd = function(_, opts)
+        -- override on_attach
+        local on_attach = opts.on_attach
+        opts.on_attach = function(client, bufnr)
+          on_attach(client, bufnr)
+          require("clangd_extensions").setup({
+            inlay_hints = {
+              inline = true,
+              only_current_line = false,
+              show_parameter_hints = true,
+            }
+          })
+          require("clangd_extensions.inlay_hints").setup_autocmd()
+          require("clangd_extensions.inlay_hints").set_inlay_hints()
+        end,
         require('lspconfig').clangd.setup(opts)
-        require("clangd_extensions").setup {}
       end,
     },
     config = {
