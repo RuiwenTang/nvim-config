@@ -17,7 +17,7 @@ return {
           on_attach(client, bufnr)
           require("clangd_extensions").setup({
             inlay_hints = {
-              inline = true,
+              inline = vim.fn.has("nvim-0.10") == 1,
               only_current_line = false,
               show_parameter_hints = true,
             }
