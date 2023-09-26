@@ -30,6 +30,7 @@ return {
     },
     config = {
       clangd = {
+        cmd = { "clangd", "-header-insertion=never" },
         capabilities = {
           offsetEncoding = "utf-8",
         },
