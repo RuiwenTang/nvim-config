@@ -5,6 +5,10 @@ return {
   -- { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" },
   { import = "astrocommunity.bars-and-lines.lualine-nvim" },
   { "nvim-lualine/lualine.nvim",
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+      'linrongbin16/lsp-progress.nvim',
+    },
     config = function()
       local empty = require('lualine.component'):extend()
       function empty:draw(default_highlight)
@@ -54,6 +58,19 @@ return {
         return ''
       end
 
+      local function LspIcon()
+        local active_clients_count = #vim.lsp.get_active_clients()
+        return active_clients_count > 0 and " LSP" or ""
+      end
+
+      local function LspStatus()
+        return require("lsp-progress").progress({
+          format = function(messages)
+              return #messages > 0 and table.concat(messages, " ") or ""
+            end,
+        })
+      end
+
       require('lualine').setup {
         options = {
           theme = "catppuccin",
@@ -95,7 +112,10 @@ return {
               end,
             },
           },
-          lualine_c = {},
+          lualine_c = {
+            LspIcon,
+            LspStatus,
+          },
           lualine_x = {},
           lualine_y = { search_result, 'filetype' },
           lualine_z = { '%l:%c', '%p%%/%L' },
@@ -105,6 +125,14 @@ return {
           lualine_x = {},
         },
       }
+
+      -- listen lsp-progress event and refresh lualine
+      vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+      vim.api.nvim_create_autocmd("User", {
+        group = "lualine_augroup",
+        pattern = "LspProgressStatusUpdated",
+        callback = require("lualine").refresh,
+      })
     end,
   },
 }
